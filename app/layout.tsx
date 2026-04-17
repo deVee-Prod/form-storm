@@ -13,10 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Storm Form",
+  title: "Storm Form | deVee Boutique Label",
   description: "Label Distribution System",
   icons: {
-    icon: "/logo.png", // זה ימשוך את הקובץ מתיקיית public
+    // ה-v=1 מכריח את כרום והאייפון לרענן את הלוגו מהזיכרון
+    icon: [
+      { url: "/logo.png?v=1", href: "/logo.png?v=1" },
+    ],
+    apple: [
+      { url: "/logo.png?v=1", href: "/logo.png?v=1" },
+    ],
   },
 };
 
@@ -27,10 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="he"
+      dir="rtl"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#0a0a0a]">{children}</body>
     </html>
   );
 }
