@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Music, User, Calendar, Share2, Upload, CheckCircle2, Instagram } from "lucide-react"
+import { Music, User, Calendar, Share2, Upload, CheckCircle2 } from "lucide-react"
 import JSZip from "jszip"
 
 export default function StormFormPage() {
@@ -95,10 +95,7 @@ export default function StormFormPage() {
             <div className="grid grid-cols-1 gap-3">
               <input placeholder="שם השיר (עברית)" onChange={e => setFormData({...formData, songNameHeb: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="שם האמן (עברית ואנגלית)" onChange={e => setFormData({...formData, artistName: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
-              <div className="relative">
-                <input placeholder="קישור לאינסטגרם" dir="ltr" onChange={e => setFormData({...formData, instagram: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-left pr-10" />
-                <Instagram className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
-              </div>
+              <input placeholder="קישור לאינסטגרם" onChange={e => setFormData({...formData, instagram: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="ז'אנר" onChange={e => setFormData({...formData, genre: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
             </div>
           </div>
@@ -143,17 +140,17 @@ export default function StormFormPage() {
               <div className="relative">
                 <input 
                   type="date" 
-                  data-placeholder="לחץ לבחירת תאריך הפצה..."
                   onChange={e => setFormData({...formData, releaseDate: e.target.value})} 
-                  className={`w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-[#0077FF] text-right appearance-none flex items-center justify-end
-                    ${!formData.releaseDate ? "before:content-[attr(data-placeholder)] before:text-white/20" : ""}`} 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-[#0077FF] text-right appearance-none" 
                   style={{ minHeight: '52px' }}
                 />
-                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 pointer-events-none" />
+                {!formData.releaseDate && (
+                  <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none text-white/20 text-sm">
+                    <Calendar className="w-4 h-4" />
+                    <span>תאריך הפצה מבוקש</span>
+                  </div>
+                )}
               </div>
-              <p className="text-[9px] text-white/20 mt-1 pr-1 font-medium italic">
-                * תזכורת: PIL דורשים מינימום 14 ימי עסקים להפצה.
-              </p>
             </div>
           </div>
 
