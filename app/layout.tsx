@@ -16,15 +16,13 @@ export const metadata: Metadata = {
   title: "Storm Form",
   description: "Label Distribution System",
   icons: {
-    // ה-v=1 מכריח את כרום והאייפון לרענן את הלוגו מהזיכרון
-    icon: [
-      { url: "/logo.png?v=1", href: "/logo.png?v=1" },
-    ],
-    apple: [
-      { url: "/logo.png?v=1", href: "/logo.png?v=1" },
-    ],
-  },
-};
+  icon: [
+    { url: "/logo.png?v=1", href: "/logo.png?v=1" },
+  ],
+  apple: [
+    { url: "/apple-touch-icon.png?v=1", href: "/apple-touch-icon.png?v=1" },
+  ],
+},
 
 export default function RootLayout({
   children,
