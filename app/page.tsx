@@ -77,11 +77,12 @@ export default function StormFormPage() {
 
       <div className="max-w-[500px] mx-auto space-y-8 relative z-10">
         
-        <header className="text-center space-y-4 pt-4">
-          <div className="w-24 h-24 mx-auto mb-1 transition-transform hover:scale-105">
+        {/* Header מעודכן - הקטנה, הצללה ושינוי מיקום */}
+        <header className="text-center space-y-2 pt-6 pb-2">
+          <div className="w-20 h-20 mx-auto mb-3 transition-transform hover:scale-105">
             <img src="/logo.png" className="w-full h-full object-contain" alt="Storm Form Logo" />
           </div>
-          <h1 className="text-[9px] font-black uppercase tracking-[0.8em] text-white drop-shadow-[0_4px_12px_rgba(0,119,255,0.5)]">
+          <h1 className="text-[10px] font-black uppercase tracking-[0.8em] text-white drop-shadow-[0_0_15px_rgba(0,119,255,0.8)] opacity-90">
             STORM FORM
           </h1>
         </header>
