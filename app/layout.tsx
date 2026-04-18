@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Storm Form | deVee Boutique Label",
+  title: "Storm Form",
   description: "Label Distribution System",
   icons: {
     // ה-v=1 מכריח את כרום והאייפון לרענן את הלוגו מהזיכרון
