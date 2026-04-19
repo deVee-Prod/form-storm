@@ -9,7 +9,7 @@ export default function StormFormPage() {
     songNameHeb: "", artistName: "", genre: "", instagram: "", 
     writer: "", composer: "", arranger: "",
     masterOwner: "deVee Boutique Label", lyrics: "",
-    releaseDate: ""
+    releaseDate: "", spotifyPage: "", appleMusicPage: "", tiktokTiming: ""
   })
   const [artworkFile, setArtworkFile] = useState<File | null>(null)
   const [artistPhotoFile, setArtistPhotoFile] = useState<File | null>(null)
@@ -25,7 +25,7 @@ export default function StormFormPage() {
       const zip = new JSZip()
       const folderName = `${formData.songNameHeb || 'New_Song'} - deVee Distro`
       
-      const pilInfo = `שלום מחלקת ניו מדיה ותמלוגים (PIL),\n\nמצורפים חומרים להפצת סינגל חדש תחת deVee Boutique Label:\n\n--- פרטי השיר ---\nשם השיר: ${formData.songNameHeb}\nשם האמן (עברית + אנגלית): ${formData.artistName}\nז'אנר: ${formData.genre}\nקישור לאינסטגרם: ${formData.instagram}\n\n--- קרדיטים ---\nמילים: ${formData.writer}\nלחן: ${formData.composer}\nעיבוד והפקה: ${formData.arranger}\nבעלים של המאסטר: ${formData.masterOwner}\n\n--- תזמון ---\nתאריך הוצאה מבוקש: ${formData.releaseDate}\n\n--- מילים ---\n${formData.lyrics}\n\nבברכה,\nדיויד בן דויד - deVee Studio`;
+      const pilInfo = `שלום מחלקת ניו מדיה ותמלוגים (PIL),\n\nמצורפים חומרים להפצת סינגל חדש תחת deVee Boutique Label:\n\n--- פרטי השיר ---\nשם השיר: ${formData.songNameHeb}\nשם האמן (עברית + אנגלית): ${formData.artistName}\nז'אנר: ${formData.genre}\nקישור לאינסטגרם: ${formData.instagram}\nעמוד אמן ספוטיפיי: ${formData.spotifyPage || 'לא צוין'}\nאמן אפל מיוזיק: ${formData.appleMusicPage || 'לא צוין'}\n\n--- קרדיטים ---\nמילים: ${formData.writer}\nלחן: ${formData.composer}\nעיבוד והפקה: ${formData.arranger}\nבעלים של המאסטר: ${formData.masterOwner}\n\n--- תזמון ---\nתאריך הוצאה מבוקש: ${formData.releaseDate}\nתזמון סאונד טיקטוק: ${formData.tiktokTiming || 'לא צוין'}\n\n--- מילים ---\n${formData.lyrics}\n\nבברכה,\nדיויד בן דויד - deVee Studio`;
       
       zip.file("PIL_INFO.txt", pilInfo)
       zip.file(`Artwork_${artworkFile.name}`, artworkFile)
@@ -77,7 +77,6 @@ export default function StormFormPage() {
 
       <div className="max-w-[500px] mx-auto space-y-8 relative z-10">
         
-        {/* Header מעודכן - הקטנה, הצללה ושינוי מיקום */}
         <header className="text-center space-y-2 pt-6 pb-2">
           <div className="w-20 h-20 mx-auto mb-3 transition-transform hover:scale-105">
             <img src="/logo.png" className="w-full h-full object-contain" alt="Storm Form Logo" />
@@ -98,6 +97,8 @@ export default function StormFormPage() {
               <input placeholder="שם האמן (עברית ואנגלית)" onChange={e => setFormData({...formData, artistName: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="קישור לאינסטגרם" onChange={e => setFormData({...formData, instagram: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="ז'אנר" onChange={e => setFormData({...formData, genre: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
+              <input placeholder="עמוד אמן ספוטיפיי (במידה ויש)" onChange={e => setFormData({...formData, spotifyPage: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
+              <input placeholder="אמן אפל מיוזיק (במידה ויש)" onChange={e => setFormData({...formData, appleMusicPage: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
             </div>
           </div>
 
@@ -152,6 +153,8 @@ export default function StormFormPage() {
                   </div>
                 )}
               </div>
+
+              <input placeholder="תזמון סאונד טיקטוק (לדוג׳ 1:01-2:20)" onChange={e => setFormData({...formData, tiktokTiming: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
             </div>
           </div>
 
