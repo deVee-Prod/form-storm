@@ -8,7 +8,7 @@ export default function StormFormPage() {
   const [formData, setFormData] = useState({
     songNameHeb: "", artistName: "", genre: "", instagram: "", 
     writer: "", composer: "", arranger: "",
-    masterOwner: "deVee Boutique Label", lyrics: "",
+    lyrics: "",
     releaseDate: "", spotifyPage: "", appleMusicPage: "", tiktokTiming: ""
   })
   const [artworkFile, setArtworkFile] = useState<File | null>(null)
@@ -25,11 +25,16 @@ export default function StormFormPage() {
       const zip = new JSZip()
       const folderName = `${formData.songNameHeb || 'New_Song'} - deVee Distro`
       
-      const pilInfo = `שלום מחלקת ניו מדיה ותמלוגים (PIL),\n\nמצורפים חומרים להפצת סינגל חדש תחת deVee Boutique Label:\n\n--- פרטי השיר ---\nשם השיר: ${formData.songNameHeb}\nשם האמן (עברית + אנגלית): ${formData.artistName}\nז'אנר: ${formData.genre}\nקישור לאינסטגרם: ${formData.instagram}\nעמוד אמן ספוטיפיי: ${formData.spotifyPage || 'לא צוין'}\nאמן אפל מיוזיק: ${formData.appleMusicPage || 'לא צוין'}\n\n--- קרדיטים ---\nמילים: ${formData.writer}\nלחן: ${formData.composer}\nעיבוד והפקה: ${formData.arranger}\nבעלים של המאסטר: ${formData.masterOwner}\n\n--- תזמון ---\nתאריך הוצאה מבוקש: ${formData.releaseDate}\nתזמון סאונד טיקטוק: ${formData.tiktokTiming || 'לא צוין'}\n\n--- מילים ---\n${formData.lyrics}\n\nבברכה,\nדיויד בן דויד - deVee Studio`;
+      const masterOwner = `David "deVee" Ben David 50% | ${formData.artistName} 50%`
+
+      const pilInfo = `שלום מחלקת ניו מדיה ותמלוגים (PIL),\n\nמצורפים חומרים להפצת סינגל חדש תחת deVee Boutique Label:\n\n--- פרטי השיר ---\nשם השיר: ${formData.songNameHeb}\nשם האמן (עברית + אנגלית): ${formData.artistName}\nז'אנר: ${formData.genre}\nקישור לאינסטגרם: ${formData.instagram}\nעמוד אמן ספוטיפיי: ${formData.spotifyPage || 'לא צוין'}\nאמן אפל מיוזיק: ${formData.appleMusicPage || 'לא צוין'}\n\n--- קרדיטים ---\nכותבים: ${formData.writer}\nמלחינים: ${formData.composer}\nעיבוד והפקה: ${formData.arranger}\nבעלים של המאסטר: ${masterOwner}\n\n--- תזמון ---\nתאריך הוצאה מבוקש: ${formData.releaseDate}\nתזמון סאונד טיקטוק: ${formData.tiktokTiming || 'לא צוין'}\n\n--- מילים ---\n${formData.lyrics}\n\nבברכה,\ndeVee Boutique Label - דייויד "deVee" בן דוד`;
       
       zip.file("PIL_INFO.txt", pilInfo)
-      zip.file(`Artwork_${artworkFile.name}`, artworkFile)
-      zip.file(`ArtistPhoto_${artistPhotoFile.name}`, artistPhotoFile)
+
+      const artworkExt = artworkFile.name.split('.').pop()
+      const photoExt = artistPhotoFile.name.split('.').pop()
+      zip.file(`עטיפה לסינגל ${formData.songNameHeb}.${artworkExt}`, artworkFile)
+      zip.file(`תמונה עדכנית של האמן.${photoExt}`, artistPhotoFile)
 
       const content = await zip.generateAsync({ type: "blob" })
       const file = new File([content], `${folderName}.zip`, { type: "application/zip" })
@@ -107,8 +112,8 @@ export default function StormFormPage() {
               <User className="w-3.5 h-3.5" /> קרדיטים ומילים
             </label>
             <div className="grid grid-cols-1 gap-3">
-              <input placeholder="כותב מילים" onChange={e => setFormData({...formData, writer: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
-              <input placeholder="מלחין" onChange={e => setFormData({...formData, composer: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
+              <input placeholder="כותבים" onChange={e => setFormData({...formData, writer: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
+              <input placeholder="מלחינים" onChange={e => setFormData({...formData, composer: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="מעבד ומפיק מוזיקלי" onChange={e => setFormData({...formData, arranger: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
             </div>
             <textarea placeholder="הדבק כאן את מילות השיר..." onChange={e => setFormData({...formData, lyrics: e.target.value})} className="w-full h-32 bg-white/5 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-[#0077FF] transition-all resize-none placeholder:text-white/20 text-right" />
