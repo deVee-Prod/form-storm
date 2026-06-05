@@ -75,7 +75,7 @@ export default function StormFormApp() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white p-6 font-sans select-none pb-20" dir="rtl">
+    <main className="min-h-screen text-white p-6 font-sans select-none pb-20" dir="rtl">
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[400px] bg-[#0077FF]/10 blur-[120px]" />
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { DriftingGridBackground } from './components/DriftingGridBackground';
 
 export const metadata: Metadata = {
   title: "Storm Form",
@@ -13,7 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="he" dir="rtl" className="h-full">
-      <body className="min-h-full flex flex-col bg-[#0a0a0a]">{children}</body>
+      <body className="relative min-h-full flex flex-col">
+        <DriftingGridBackground />
+        <div className="relative z-10 flex flex-col min-h-full">{children}</div>
+      </body>
     </html>
   );
 }
