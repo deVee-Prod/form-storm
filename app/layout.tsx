@@ -3,6 +3,7 @@ import "./globals.css";
 import { DriftingGridBackground } from './components/DriftingGridBackground';
 import { ToolHeader } from './components/ToolHeader';
 
+
 export const metadata: Metadata = {
   title: "Storm Form",
   description: "Label Distribution System",
