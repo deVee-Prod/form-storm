@@ -177,7 +177,7 @@ export default function StormFormApp() {
             Powered By deVee Boutique Label
           </p>
           <div className="w-10 h-10 mx-auto transition-all hover:scale-110 opacity-90">
-            <img src="/label_logo.jpg" alt="deVee Label" className="w-full h-full object-contain rounded-full" />
+            <img src="/label_logo.png" alt="deVee Label" className="w-full h-full object-contain rounded-full" />
           </div>
         </footer>
       </div>
