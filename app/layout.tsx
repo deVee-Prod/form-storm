@@ -6,7 +6,7 @@ import { ToolHeader } from './components/ToolHeader';
 
 export const metadata: Metadata = {
   title: "Storm Form",
-  description: "Label Distribution System",
+  description: "Easily generate info files to send new songs to record labels.",
   icons: {
     icon: "/logo.png",
     apple: "/apple-touch-icon.png",
