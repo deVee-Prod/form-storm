@@ -172,14 +172,14 @@ export default function StormFormApp() {
           </button>
         </div>
 
-        <footer className="text-center space-y-4 pt-4">
-          <p className="text-[10px] font-medium tracking-[0.1em] text-white/30 normal-case">
-            Powered By deVee Boutique Label
-          </p>
-          <div className="w-10 h-10 mx-auto transition-all hover:scale-110 opacity-90">
-            <img src="/label_logo.png" alt="deVee Label" className="w-full h-full object-contain rounded-full" />
-          </div>
-        </footer>
+        {/* Floating Logo Watermark (Desktop Only) */}
+        <div className="hidden md:flex fixed bottom-6 left-6 z-50 opacity-40 hover:opacity-100 transition-opacity duration-300">
+          <a href="https://devee-music.com" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+              <img src="/label_logo.png" alt="deVee" className="w-full h-full object-cover" />
+            </div>
+          </a>
+        </div>
       </div>
     </main>
   )
