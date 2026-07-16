@@ -82,13 +82,9 @@ export default function StormFormApp() {
 
       <div className="max-w-[500px] mx-auto space-y-8 relative z-10">
 
-        <header className="text-center space-y-2 pt-6 pb-2">
-          <div className="w-20 h-20 mx-auto mb-3 transition-transform hover:scale-105">
-            <img src="/logo.png" className="w-full h-full object-contain" alt="Storm Form Logo" />
-          </div>
-          <h1 className="text-[10px] font-black uppercase tracking-[0.8em] text-white drop-shadow-[0_0_15px_rgba(0,119,255,0.8)] opacity-90">
-            STORM FORM
-          </h1>
+        <header className="relative z-20 flex flex-col items-center shrink-0 mb-4 pt-6">
+          <img src="/logo.png" alt="Storm Form Logo" className="w-[100px] h-[100px] mb-2 object-contain" />
+          <h1 className="text-[10px] font-bold tracking-[0.5em] uppercase text-white/60">STORM FORM</h1>
         </header>
 
         <div className="bg-[#121212] border border-white/5 rounded-[2.5rem] p-8 shadow-2xl backdrop-blur-md space-y-8 text-right">
