@@ -80,20 +80,20 @@ export default function StormFormApp() {
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[400px] bg-[#0077FF]/10 blur-[120px]" />
       </div>
 
-      <div className="max-w-[500px] mx-auto space-y-8 relative z-10">
+      <div className="max-w-[800px] w-full px-4 mx-auto space-y-8 relative z-10">
 
         <header className="relative z-20 flex flex-col items-center shrink-0 mb-4 pt-6">
           <img src="/logo.png" alt="Storm Form Logo" className="w-[100px] h-[100px] mb-2 object-contain" />
           <h1 className="text-[10px] font-bold tracking-[0.5em] uppercase text-white/60">STORM FORM</h1>
         </header>
 
-        <div className="bg-[#121212] border border-white/5 rounded-[2.5rem] p-8 shadow-2xl backdrop-blur-md space-y-8 text-right">
+        <div className="bg-[#121212] border border-white/5 rounded-[2.5rem] p-6 md:p-8 shadow-2xl backdrop-blur-md space-y-8 text-right">
 
           <div className="space-y-4">
             <label className="text-[10px] font-black uppercase tracking-widest text-[#0077FF] flex items-center gap-2 px-1">
               <Music className="w-3.5 h-3.5" /> פרטי השיר והאמן
             </label>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <input placeholder="שם השיר (עברית)" onChange={e => setFormData({...formData, songNameHeb: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="שם האמן (עברית ואנגלית)" onChange={e => setFormData({...formData, artistName: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="קישור לאינסטגרם" onChange={e => setFormData({...formData, instagram: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
@@ -107,7 +107,7 @@ export default function StormFormApp() {
             <label className="text-[10px] font-black uppercase tracking-widest text-[#0077FF] flex items-center gap-2 px-1">
               <User className="w-3.5 h-3.5" /> קרדיטים ומילים
             </label>
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <input placeholder="כותבים" onChange={e => setFormData({...formData, writer: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="מלחינים" onChange={e => setFormData({...formData, composer: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
               <input placeholder="מעבד ומפיק מוזיקלי" onChange={e => setFormData({...formData, arranger: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
@@ -119,24 +119,24 @@ export default function StormFormApp() {
             <label className="text-[10px] font-black uppercase tracking-widest text-[#0077FF] flex items-center gap-2 px-1">
               <Upload className="w-3.5 h-3.5" /> קבצים ותזמון
             </label>
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="relative group">
                 <input type="file" accept="image/*" onChange={(e) => setArtworkFile(e.target.files?.[0] || null)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
-                <div className={`w-full p-4 border-2 border-dashed rounded-xl flex items-center justify-between transition-all ${artworkFile ? 'border-[#0077FF] bg-[#0077FF]/5' : 'border-white/10 group-hover:border-white/20'}`}>
+                <div className={`w-full h-full min-h-[52px] px-4 border-2 border-dashed rounded-xl flex items-center justify-between transition-all ${artworkFile ? 'border-[#0077FF] bg-[#0077FF]/5' : 'border-white/10 group-hover:border-white/20'}`}>
                   <span className="text-sm text-white/40 truncate max-w-[200px]">
                     {artworkFile ? artworkFile.name : 'בחר קובץ עטיפה (3000px)'}
                   </span>
-                  <Upload className={`w-4 h-4 ${artworkFile ? 'text-[#0077FF]' : 'text-white/20'}`} />
+                  <Upload className={`w-4 h-4 shrink-0 ml-2 ${artworkFile ? 'text-[#0077FF]' : 'text-white/20'}`} />
                 </div>
               </div>
 
               <div className="relative group">
                 <input type="file" accept="image/*" onChange={(e) => setArtistPhotoFile(e.target.files?.[0] || null)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20" />
-                <div className={`w-full p-4 border-2 border-dashed rounded-xl flex items-center justify-between transition-all ${artistPhotoFile ? 'border-[#0077FF] bg-[#0077FF]/5' : 'border-white/10 group-hover:border-white/20'}`}>
+                <div className={`w-full h-full min-h-[52px] px-4 border-2 border-dashed rounded-xl flex items-center justify-between transition-all ${artistPhotoFile ? 'border-[#0077FF] bg-[#0077FF]/5' : 'border-white/10 group-hover:border-white/20'}`}>
                   <span className="text-sm text-white/40 truncate max-w-[200px]">
                     {artistPhotoFile ? artistPhotoFile.name : 'בחר תמונת אמן עדכנית'}
                   </span>
-                  <User className={`w-4 h-4 ${artistPhotoFile ? 'text-[#0077FF]' : 'text-white/20'}`} />
+                  <User className={`w-4 h-4 shrink-0 ml-2 ${artistPhotoFile ? 'text-[#0077FF]' : 'text-white/20'}`} />
                 </div>
               </div>
 
@@ -144,18 +144,17 @@ export default function StormFormApp() {
                 <input
                   type="date"
                   onChange={e => setFormData({...formData, releaseDate: e.target.value})}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-[#0077FF] text-right appearance-none"
-                  style={{ minHeight: '52px' }}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-[#0077FF] text-right appearance-none min-h-[52px]"
                 />
                 {!formData.releaseDate && (
                   <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none text-white/20 text-sm">
-                    <Calendar className="w-4 h-4" />
+                    <Calendar className="w-4 h-4 shrink-0 ml-2" />
                     <span>תאריך הפצה מבוקש</span>
                   </div>
                 )}
               </div>
 
-              <input placeholder="תזמון סאונד טיקטוק (לדוג׳ 1:01-2:20)" onChange={e => setFormData({...formData, tiktokTiming: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right" />
+              <input placeholder="תזמון סאונד טיקטוק (לדוג׳ 1:01-2:20)" onChange={e => setFormData({...formData, tiktokTiming: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#0077FF] outline-none transition-all placeholder:text-white/20 text-right min-h-[52px]" />
             </div>
           </div>
 
