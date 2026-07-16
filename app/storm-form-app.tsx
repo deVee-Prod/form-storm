@@ -75,14 +75,14 @@ export default function StormFormApp() {
   }
 
   return (
-    <main className="min-h-[100dvh] text-white p-6 font-sans select-none pb-20" dir="rtl">
+    <main className="min-h-[100dvh] text-white px-6 pt-0 font-sans select-none pb-20" dir="rtl">
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[400px] bg-[#0077FF]/10 blur-[120px]" />
       </div>
 
       <div className="max-w-[800px] w-full px-4 mx-auto space-y-8 relative z-10">
 
-        <header className="relative z-20 flex flex-col items-center shrink-0 mb-4 pt-6">
+        <header className="w-full relative z-20 flex flex-col items-center shrink-0 mt-8 mb-6">
           <img src="/logo.png" alt="Storm Form Logo" className="w-[100px] h-[100px] mb-2 object-contain" />
           <h1 className="text-[10px] font-bold tracking-[0.5em] uppercase text-white/60">STORM FORM</h1>
         </header>
