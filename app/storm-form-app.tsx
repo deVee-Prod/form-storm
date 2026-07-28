@@ -75,12 +75,12 @@ export default function StormFormApp() {
  }
 
  return (
- <main className="min-h-[100dvh] text-white px-6 pt-0 select-none pb-20" dir="rtl">
- <div className="fixed inset-0 pointer-events-none">
+ <main className="min-h-[100dvh] flex flex-col justify-center text-white px-6 py-12 select-none" dir="rtl">
+ <div className="fixed inset-0 pointer-events-none z-0">
  <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-full h-[400px] bg-[#FF8800]/10 blur-[120px]" />
  </div>
 
- <div className="max-w-[950px] mt-12 w-full px-4 mx-auto space-y-8 relative z-10">
+ <div className="max-w-[950px] w-full px-4 mx-auto space-y-8 relative z-10">
 
  <div className="bg-[#121212] border border-white/5 rounded-[2.5rem] p-6 md:p-8 shadow-2xl backdrop-blur-md space-y-8 text-right">
 
