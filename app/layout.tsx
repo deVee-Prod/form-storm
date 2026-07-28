@@ -15,6 +15,18 @@ export const metadata: Metadata = {
     { rel: 'icon', url: '/favicon-512-v2.png', sizes: '512x512', type: 'image/png' },
     { rel: 'apple-touch-icon', url: '/favicon-512-v2.png', sizes: '512x512', type: 'image/png' },
   ],
+  twitter: {
+    card: "summary_large_image",
+    title: "Storm Form",
+    description: "Easily generate info files to send new songs to record labels.",
+    images: ["https://www.devee-music.com/social-preview.jpg"]
+  },
+  openGraph: {
+    title: "Storm Form",
+    description: "Easily generate info files to send new songs to record labels.",
+    images: ["https://www.devee-music.com/social-preview.jpg"],
+    type: "website"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
