@@ -9,7 +9,7 @@ export default function StormFormApp() {
  songNameHeb: "", artistName: "", genre: "", instagram: "",
  writer: "", composer: "", arranger: "",
  lyrics: "",
- releaseDate: "", spotifyPage: "", appleMusicPage: "", tiktokTiming: ""
+ releaseDate: "", spotifyPage: "", appleMusicPage: "", tiktokTiming: "", tiktokPage: "", youtubePage: ""
  })
  const [artworkFile, setArtworkFile] = useState<File | null>(null)
  const [artistPhotoFile, setArtistPhotoFile] = useState<File | null>(null)
@@ -27,7 +27,7 @@ export default function StormFormApp() {
 
  const masterOwner = `David "deVee" Ben David 50% | ${formData.artistName} 50%`
 
- const pilInfo = `שלום מחלקת ניו מדיה ותמלוגים (PIL),\n\nמצורפים חומרים להפצת סינגל חדש תחת deVee Boutique Label:\n\n--- פרטי השיר ---\nשם השיר: ${formData.songNameHeb}\nשם האמן (עברית + אנגלית): ${formData.artistName}\nז'אנר: ${formData.genre}\nקישור לאינסטגרם: ${formData.instagram}\nעמוד אמן ספוטיפיי: ${formData.spotifyPage || 'לא צוין'}\nאמן אפל מיוזיק: ${formData.appleMusicPage || 'לא צוין'}\n\n--- קרדיטים ---\nכותבים: ${formData.writer}\nמלחינים: ${formData.composer}\nעיבוד והפקה: ${formData.arranger}\nבעלים של המאסטר: ${masterOwner}\n\n--- תזמון ---\nתאריך הוצאה מבוקש: ${formData.releaseDate}\nתזמון סאונד טיקטוק: ${formData.tiktokTiming || 'לא צוין'}\n\n--- מילים ---\n${formData.lyrics}\n\nבברכה,\ndeVee Boutique Label - דייויד "deVee" בן דוד`;
+ const pilInfo = `שלום מחלקת ניו מדיה ותמלוגים (PIL),\n\nמצורפים חומרים להפצת סינגל חדש תחת deVee Boutique Label:\n\n--- פרטי השיר ---\nשם השיר: ${formData.songNameHeb}\nשם האמן (עברית + אנגלית): ${formData.artistName}\nז'אנר: ${formData.genre}\nקישור לאינסטגרם: ${formData.instagram}\nעמוד אמן ספוטיפיי: ${formData.spotifyPage || 'לא צוין'}\nאמן אפל מיוזיק: ${formData.appleMusicPage || 'לא צוין'}\nעמוד טיקטוק: ${formData.tiktokPage || 'לא צוין'}\nעמוד יוטיוב: ${formData.youtubePage || 'לא צוין'}\n\n--- קרדיטים ---\nכותבים: ${formData.writer}\nמלחינים: ${formData.composer}\nעיבוד והפקה: ${formData.arranger}\nבעלים של המאסטר: ${masterOwner}\n\n--- תזמון ---\nתאריך הוצאה מבוקש: ${formData.releaseDate}\nתזמון סאונד טיקטוק: ${formData.tiktokTiming || 'לא צוין'}\n\n--- מילים ---\n${formData.lyrics}\n\nבברכה,\ndeVee Boutique Label - דייויד "deVee" בן דוד`;
 
  zip.file("PIL_INFO.txt", pilInfo)
 
@@ -95,6 +95,8 @@ export default function StormFormApp() {
  <input placeholder="ז'אנר" onChange={e => setFormData({...formData, genre: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#FF8800] outline-none transition-all placeholder:text-white/20 text-right" />
  <input placeholder="עמוד אמן ספוטיפיי (במידה ויש)" onChange={e => setFormData({...formData, spotifyPage: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#FF8800] outline-none transition-all placeholder:text-white/20 text-right" />
  <input placeholder="אמן אפל מיוזיק (במידה ויש)" onChange={e => setFormData({...formData, appleMusicPage: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#FF8800] outline-none transition-all placeholder:text-white/20 text-right" />
+ <input placeholder="עמוד טיקטוק (במידה ויש)" onChange={e => setFormData({...formData, tiktokPage: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#FF8800] outline-none transition-all placeholder:text-white/20 text-right" />
+ <input placeholder="עמוד יוטיוב (במידה ויש)" onChange={e => setFormData({...formData, youtubePage: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-sm focus:border-[#FF8800] outline-none transition-all placeholder:text-white/20 text-right" />
  </div>
  </div>
 
